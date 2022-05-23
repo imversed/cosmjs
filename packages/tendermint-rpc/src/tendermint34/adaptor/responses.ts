@@ -185,7 +185,7 @@ interface RpcValidatorUpdate {
 function decodeValidatorUpdate(data: RpcValidatorUpdate): responses.Validator {
   return {
     pubkey: decodePubkey(assertObject(data.pub_key)),
-    votingPower: Integer.parse(assertNotEmpty(data.voting_power)),
+    votingPower: BigInt(assertNotEmpty(data.voting_power)),
     address: fromHex(assertNotEmpty(data.address)),
     proposerPriority: Integer.parse(data.proposer_priority),
   };
@@ -497,7 +497,7 @@ function decodeValidatorGenesis(data: RpcValidatorGenesis): responses.Validator 
   return {
     address: fromHex(assertNotEmpty(data.address)),
     pubkey: decodePubkey(assertObject(data.pub_key)),
-    votingPower: Integer.parse(assertNotEmpty(data.power)),
+    votingPower: BigInt(assertNotEmpty(data.power)),
   };
 }
 
@@ -539,7 +539,7 @@ interface RpcValidatorInfo {
 function decodeValidatorInfo(data: RpcValidatorInfo): responses.Validator {
   return {
     pubkey: decodePubkey(assertObject(data.pub_key)),
-    votingPower: Integer.parse(assertNotEmpty(data.voting_power)),
+    votingPower: BigInt(assertNotEmpty(data.voting_power)),
     address: fromHex(assertNotEmpty(data.address)),
   };
 }
