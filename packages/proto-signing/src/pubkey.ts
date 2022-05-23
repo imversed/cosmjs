@@ -42,6 +42,10 @@ function decodeSinglePubkey(pubkey: Any): SinglePubkey {
       const { key } = PubKey.decode(pubkey.value);
       return encodeSecp256k1Pubkey(key);
     }
+    case "/ethermint.crypto.v1.ethsecp256k1.PubKey": {
+      const { key } = PubKey.decode(pubkey.value);
+      return encodeSecp256k1Pubkey(key, "/ethermint.crypto.v1.ethsecp256k1.PubKey");
+    }
     default:
       throw new Error(`Pubkey type_url ${pubkey.typeUrl} not recognized as single public key type`);
   }
