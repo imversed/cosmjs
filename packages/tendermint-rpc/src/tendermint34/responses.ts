@@ -341,7 +341,7 @@ export interface SyncInfo {
 export interface Validator {
   readonly address: Uint8Array;
   readonly pubkey?: ValidatorPubkey;
-  readonly votingPower: number;
+  readonly votingPower: bigint;
   readonly proposerPriority?: number;
 }
 
