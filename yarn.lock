@@ -788,7 +788,7 @@ __metadata:
     long: ^4.0.0
     nyc: ^15.1.0
     prettier: ^2.4.1
-    protobufjs: ~6.10.2
+    protobufjs: ~6.11.2
     ses: ^0.11.0
     source-map-support: ^0.5.19
     ts-node: ^8
@@ -887,7 +887,7 @@ __metadata:
     long: ^4.0.0
     nyc: ^15.1.0
     prettier: ^2.4.1
-    protobufjs: ~6.10.2
+    protobufjs: ~6.11.2
     readonly-date: ^1.0.0
     ses: ^0.11.0
     source-map-support: ^0.5.19
