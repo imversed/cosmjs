@@ -37,7 +37,8 @@
     "docs": "yarn workspaces foreach --topological-dev --parallel --verbose run docs",
     "pack-web": "yarn workspaces foreach --topological-dev --parallel --verbose run pack-web",
     "publish-next": "yarn workspaces foreach --no-private exec yarn npm publish --tag next",
-    "publish-latest": "yarn workspaces foreach --no-private exec yarn npm publish"
+    "publish-latest": "yarn workspaces foreach --no-private exec yarn npm publish",
+    "patch-version": "yarn workspaces foreach exec yarn version patch"
   },
   "devDependencies": {
     "@imversed/amino": "workspace:packages/amino",

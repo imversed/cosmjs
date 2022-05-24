@@ -1,6 +1,6 @@
 {
   "name": "@imversed/tendermint-rpc",
-  "version": "0.28.1",
+  "version": "0.28.3",
   "description": "Tendermint RPC clients",
   "contributors": [
     "IOV SAS <admin@iov.one>",
