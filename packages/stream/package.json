@@ -1,5 +1,5 @@
 {
-  "name": "@cosmjs/stream",
+  "name": "@imversed/stream",
   "version": "0.28.1",
   "description": "Utility functions for producing and consuming streams",
   "contributors": [

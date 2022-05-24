@@ -1,5 +1,5 @@
 {
-  "name": "@cosmjs/json-rpc",
+  "name": "@imversed/json-rpc",
   "version": "0.28.1",
   "description": "Framework for implementing a JSON-RPC 2.0 API",
   "contributors": [
@@ -42,7 +42,7 @@
     "pack-web": "yarn build-or-skip && webpack --mode development --config webpack.web.config.js"
   },
   "dependencies": {
-    "@cosmjs/stream": "workspace:packages/stream",
+    "@imversed/stream": "workspace:packages/stream",
     "xstream": "^11.14.0"
   },
   "devDependencies": {

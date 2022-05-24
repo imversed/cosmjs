@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { fromBase64, fromHex } from "@cosmjs/encoding";
-import { JsonRpcSuccessResponse } from "@cosmjs/json-rpc";
-import { assert } from "@cosmjs/utils";
+import { fromBase64, fromHex } from "@imversed/encoding";
+import { JsonRpcSuccessResponse } from "@imversed/json-rpc";
+import { assert } from "@imversed/utils";
 
 import { DateWithNanoseconds, fromRfc3339WithNanoseconds } from "../../dates";
 import { SubscriptionEvent } from "../../rpcclients";

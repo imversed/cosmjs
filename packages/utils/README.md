@@ -1,6 +1,6 @@
-# @cosmjs/utils
+# @imversed/utils
 
-[![npm version](https://img.shields.io/npm/v/@cosmjs/utils.svg)](https://www.npmjs.com/package/@cosmjs/utils)
+[![npm version](https://img.shields.io/npm/v/@imversed/utils.svg)](https://www.npmjs.com/package/@imversed/utils)
 
 Utility functions independent of blockchain applications. Primarily used for
 testing but stuff like `sleep` can also be useful at runtime.

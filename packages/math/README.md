@@ -1,6 +1,6 @@
-# @cosmjs/math
+# @imversed/math
 
-[![npm version](https://img.shields.io/npm/v/@cosmjs/math.svg)](https://www.npmjs.com/package/@cosmjs/math)
+[![npm version](https://img.shields.io/npm/v/@imversed/math.svg)](https://www.npmjs.com/package/@imversed/math)
 
 ## License
 

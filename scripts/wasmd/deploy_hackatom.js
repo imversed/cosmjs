@@ -1,9 +1,9 @@
 #!/usr/bin/env -S yarn node
 
 /* eslint-disable @typescript-eslint/naming-convention */
-const { SigningCosmWasmClient } = require("@cosmjs/cosmwasm-stargate");
-const { DirectSecp256k1HdWallet } = require("@cosmjs/proto-signing");
-const { calculateFee, GasPrice } = require("@cosmjs/stargate");
+const { SigningCosmWasmClient } = require("@imversed/cosmwasm-stargate");
+const { DirectSecp256k1HdWallet } = require("@imversed/proto-signing");
+const { calculateFee, GasPrice } = require("@imversed/stargate");
 const fs = require("fs");
 
 const endpoint = "http://localhost:26659";

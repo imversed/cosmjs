@@ -1,5 +1,5 @@
 {
-  "name": "@cosmjs/stargate",
+  "name": "@imversed/stargate",
   "version": "0.28.1",
   "description": "Utilities for Cosmos SDK 0.40",
   "contributors": [
@@ -39,20 +39,20 @@
   },
   "dependencies": {
     "@confio/ics23": "^0.6.8",
-    "@cosmjs/amino": "workspace:packages/amino",
-    "@cosmjs/encoding": "workspace:packages/encoding",
-    "@cosmjs/math": "workspace:packages/math",
-    "@cosmjs/proto-signing": "workspace:packages/proto-signing",
-    "@cosmjs/stream": "workspace:packages/stream",
-    "@cosmjs/tendermint-rpc": "workspace:packages/tendermint-rpc",
-    "@cosmjs/utils": "workspace:packages/utils",
+    "@imversed/amino": "workspace:packages/amino",
+    "@imversed/encoding": "workspace:packages/encoding",
+    "@imversed/math": "workspace:packages/math",
+    "@imversed/proto-signing": "workspace:packages/proto-signing",
+    "@imversed/stream": "workspace:packages/stream",
+    "@imversed/tendermint-rpc": "workspace:packages/tendermint-rpc",
+    "@imversed/utils": "workspace:packages/utils",
     "cosmjs-types": "^0.4.0",
     "long": "^4.0.0",
     "protobufjs": "~6.11.2",
     "xstream": "^11.14.0"
   },
   "devDependencies": {
-    "@cosmjs/crypto": "workspace:packages/crypto",
+    "@imversed/crypto": "workspace:packages/crypto",
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
     "@types/eslint-plugin-prettier": "^3",
     "@types/jasmine": "^3.8",

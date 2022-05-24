@@ -1,8 +1,8 @@
-# @cosmjs/amino
+# @imversed/amino
 
-[![npm version](https://img.shields.io/npm/v/@cosmjs/amino.svg)](https://www.npmjs.com/package/@cosmjs/amino)
+[![npm version](https://img.shields.io/npm/v/@imversed/amino.svg)](https://www.npmjs.com/package/@imversed/amino)
 
-Helpers for Amino for @cosmjs/stargate.
+Helpers for Amino for @imversed/stargate.
 
 ## License
 

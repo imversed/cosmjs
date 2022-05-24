@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { toHex } from "@cosmjs/encoding";
-import { Uint53 } from "@cosmjs/math";
-import { Tendermint34Client, toRfc3339WithNanoseconds } from "@cosmjs/tendermint-rpc";
-import { sleep } from "@cosmjs/utils";
+import { toHex } from "@imversed/encoding";
+import { Uint53 } from "@imversed/math";
+import { Tendermint34Client, toRfc3339WithNanoseconds } from "@imversed/tendermint-rpc";
+import { sleep } from "@imversed/utils";
 import { MsgData } from "cosmjs-types/cosmos/base/abci/v1beta1/abci";
 import { Coin } from "cosmjs-types/cosmos/base/v1beta1/coin";
 
@@ -68,13 +68,13 @@ export interface IndexedTx {
    * If you hash this, you get the transaction hash (= transaction ID):
    *
    * ```js
-   * import { sha256 } from "@cosmjs/crypto";
-   * import { toHex } from "@cosmjs/encoding";
+   * import { sha256 } from "@imversed/crypto";
+   * import { toHex } from "@imversed/encoding";
    *
    * const transactionId = toHex(sha256(indexTx.tx)).toUpperCase();
    * ```
    *
-   * Use `decodeTxRaw` from @cosmjs/proto-signing to decode this.
+   * Use `decodeTxRaw` from @imversed/proto-signing to decode this.
    */
   readonly tx: Uint8Array;
   readonly gasUsed: number;

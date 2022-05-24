@@ -1,5 +1,5 @@
 {
-  "name": "@cosmjs/faucet",
+  "name": "@imversed/faucet",
   "version": "0.28.1",
   "description": "The faucet",
   "contributors": [
@@ -39,12 +39,12 @@
     "start-coralnet": "FAUCET_ADDRESS_PREFIX=coral FAUCET_TOKENS=\"ushell,ureef\" FAUCET_CREDIT_AMOUNT_USHELL=10000000 FAUCET_CREDIT_AMOUNT_UREEF=2000000 FAUCET_CONCURRENCY=3 FAUCET_MNEMONIC=\"economy stock theory fatal elder harbor betray wasp final emotion task crumble siren bottom lizard educate guess current outdoor pair theory focus wife stone\" ./bin/cosmos-faucet start \"https://lcd.coralnet.cosmwasm.com\""
   },
   "dependencies": {
-    "@cosmjs/crypto": "workspace:packages/crypto",
-    "@cosmjs/encoding": "workspace:packages/encoding",
-    "@cosmjs/math": "workspace:packages/math",
-    "@cosmjs/proto-signing": "workspace:packages/proto-signing",
-    "@cosmjs/stargate": "workspace:packages/stargate",
-    "@cosmjs/utils": "workspace:packages/utils",
+    "@imversed/crypto": "workspace:packages/crypto",
+    "@imversed/encoding": "workspace:packages/encoding",
+    "@imversed/math": "workspace:packages/math",
+    "@imversed/proto-signing": "workspace:packages/proto-signing",
+    "@imversed/stargate": "workspace:packages/stargate",
+    "@imversed/utils": "workspace:packages/utils",
     "@koa/cors": "^3.0.0",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.1"

@@ -1,4 +1,4 @@
-import { toListPromise } from "@cosmjs/stream";
+import { toListPromise } from "@imversed/stream";
 
 import { StreamingSocket } from "./streamingsocket";
 

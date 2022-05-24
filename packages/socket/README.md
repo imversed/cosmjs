@@ -1,8 +1,8 @@
-# @cosmjs/socket
+# @imversed/socket
 
-[![npm version](https://img.shields.io/npm/v/@cosmjs/socket.svg)](https://www.npmjs.com/package/@cosmjs/socket)
+[![npm version](https://img.shields.io/npm/v/@imversed/socket.svg)](https://www.npmjs.com/package/@imversed/socket)
 
-@cosmjs/socket is a collection of helper methods and classes for working with
+@imversed/socket is a collection of helper methods and classes for working with
 WebSockets.
 
 ## License

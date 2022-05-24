@@ -1,5 +1,5 @@
 {
-  "name": "@cosmjs/encoding",
+  "name": "@imversed/encoding",
   "version": "0.28.1",
   "description": "Encoding helpers for blockchain projects",
   "contributors": [

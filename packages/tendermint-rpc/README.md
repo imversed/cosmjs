@@ -1,6 +1,6 @@
-# @cosmjs/tendermint-rpc
+# @imversed/tendermint-rpc
 
-[![npm version](https://img.shields.io/npm/v/@cosmjs/tendermint-rpc.svg)](https://www.npmjs.com/package/@cosmjs/tendermint-rpc)
+[![npm version](https://img.shields.io/npm/v/@imversed/tendermint-rpc.svg)](https://www.npmjs.com/package/@imversed/tendermint-rpc)
 
 This package provides a type-safe wrapper around
 [Tendermint RPC](https://docs.tendermint.com/master/rpc/). Notably, all binary

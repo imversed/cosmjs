@@ -7,9 +7,9 @@ import {
   Pubkey,
   SinglePubkey,
   isSinglePubkey
-} from "@cosmjs/amino";
-import { fromBase64 } from "@cosmjs/encoding";
-import { Uint53 } from "@cosmjs/math";
+} from "@imversed/amino";
+import { fromBase64 } from "@imversed/encoding";
+import { Uint53 } from "@imversed/math";
 import { LegacyAminoPubKey } from "cosmjs-types/cosmos/crypto/multisig/keys";
 import { PubKey } from "cosmjs-types/cosmos/crypto/secp256k1/keys";
 import { Any } from "cosmjs-types/google/protobuf/any";

@@ -1,8 +1,8 @@
-# @cosmjs/stream
+# @imversed/stream
 
-[![npm version](https://img.shields.io/npm/v/@cosmjs/stream.svg)](https://www.npmjs.com/package/@cosmjs/stream)
+[![npm version](https://img.shields.io/npm/v/@imversed/stream.svg)](https://www.npmjs.com/package/@imversed/stream)
 
-@cosmjs/stream are some helper methods and classes to help with stream
+@imversed/stream are some helper methods and classes to help with stream
 processing.
 
 ## License
