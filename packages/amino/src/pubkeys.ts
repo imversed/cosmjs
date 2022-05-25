@@ -27,6 +27,7 @@ export function isSecp256k1Pubkey(pubkey: Pubkey): pubkey is Secp256k1Pubkey {
 export const pubkeyType = {
   /** @see https://github.com/tendermint/tendermint/blob/v0.33.0/crypto/ed25519/ed25519.go#L22 */
   secp256k1: "tendermint/PubKeySecp256k1" as const,
+  ethsecp256k1: "/ethermint.crypto.v1.ethsecp256k1.PubKey" as const,
   /** @see https://github.com/tendermint/tendermint/blob/v0.33.0/crypto/secp256k1/secp256k1.go#L23 */
   ed25519: "tendermint/PubKeyEd25519" as const,
   /** @see https://github.com/tendermint/tendermint/blob/v0.33.0/crypto/sr25519/codec.go#L12 */
@@ -53,7 +54,7 @@ export interface SinglePubkey extends Pubkey {
 }
 
 export function isSinglePubkey(pubkey: Pubkey): pubkey is SinglePubkey {
-  const singPubkeyTypes: string[] = [pubkeyType.ed25519, pubkeyType.secp256k1, pubkeyType.sr25519, "/ethermint.crypto.v1.ethsecp256k1.PubKey"];
+  const singPubkeyTypes: string[] = [pubkeyType.ed25519, pubkeyType.secp256k1, pubkeyType.sr25519, pubkeyType.ethsecp256k1];
   return singPubkeyTypes.includes(pubkey.type);
 }
 
