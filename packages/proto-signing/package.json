@@ -44,9 +44,9 @@
     "@imversed/encoding": "workspace:packages/encoding",
     "@imversed/math": "workspace:packages/math",
     "@imversed/utils": "workspace:packages/utils",
-    "cosmjs-types": "^0.4.0",
+    "cosmjs-types": "^0.6.1",
     "long": "^4.0.0",
-    "protobufjs": "~6.11.2"
+    "protobufjs": "^7.0.0"
   },
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.1",

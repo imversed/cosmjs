@@ -24,6 +24,10 @@ export function isSecp256k1Pubkey(pubkey: Pubkey): pubkey is Secp256k1Pubkey {
   return (pubkey as Secp256k1Pubkey).type === "tendermint/PubKeySecp256k1";
 }
 
+export function isEthsecp256k1Pubkey(pubkey: Pubkey): pubkey is Secp256k1Pubkey {
+  return (pubkey as Secp256k1Pubkey).type === "/ethermint.crypto.v1.ethsecp256k1.PubKey";
+}
+
 export const pubkeyType = {
   /** @see https://github.com/tendermint/tendermint/blob/v0.33.0/crypto/ed25519/ed25519.go#L22 */
   secp256k1: "tendermint/PubKeySecp256k1" as const,
