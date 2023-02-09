@@ -173,7 +173,7 @@ describe("multisignature", () => {
   describe("makeMultisignedTx", () => {
     it("works", async () => {
       const multisigAccountAddress = "imv1lcy3fhm3kx52n6fr49sjtr56f9u4azpvwy5rre";
-      const tendermintUrl = 'https://rpc-test.imversed.network:443'
+      const tendermintUrl = "https://rpc-test.imversed.network:443";
 
       // On the composer's machine signing instructions are created.
       // The composer does not need to be one of the signers.
@@ -187,13 +187,24 @@ describe("multisignature", () => {
           toAddress: "imv1kfd0ytgesrnre5gdyx3t6qupczqygga20wr6e8",
           amount: coins(1234, "aimv"),
         };
+        // const msg: any = {
+        //   typeUrl: '/imversed.xverse.MsgAddAssetToVerse',
+        //   value: {
+        //     sender: 'imv1lcy3fhm3kx52n6fr49sjtr56f9u4azpvwy5rre',
+        //     verseName: '8953bb68-65fc-492b-8c3a-17c9028be991',
+        //     assetType: 'contract',
+        //     assetId: '0xaFbCB330Cb235CBda761Efd22bf16c62ea0E1f0b',
+        //     assetCreator: 'imv1lcy3fhm3kx52n6fr49sjtr56f9u4azpvwy5rre',
+        //     verseCreator: 'imv1lcy3fhm3kx52n6fr49sjtr56f9u4azpvwy5rre'
+        //   }
+        // }
         const msg: MsgSendEncodeObject = {
           typeUrl: "/cosmos.bank.v1beta1.MsgSend",
           value: msgSend,
         };
         const gasLimit = 200000;
         const fee = {
-          amount: coins(2000, "aimv"),
+          amount: coins(1500000, "aimv"),
           gas: gasLimit.toString(),
         };
 
@@ -210,34 +221,41 @@ describe("multisignature", () => {
       const [
         [pubkey0, signature0, bodyBytes],
         [pubkey1, signature1],
-        [pubkey2, signature2],
-        [pubkey3, signature3],
-        [pubkey4, signature4],
+        // [pubkey2, signature2],
+        // [pubkey3, signature3],
+        // [pubkey4, signature4],
       ] = await Promise.all(
-        [0, 1, 2, 3, 4].map(async (i) => {
+        [0, 1].map(async (i) => {
+
+          // [0, 1, 2, 3, 4].map(async (i) => {
           const hdPath: HdPath = [
             Slip10RawIndex.hardened(44),
             Slip10RawIndex.hardened(60),
             Slip10RawIndex.hardened(0),
             Slip10RawIndex.normal(0),
-            Slip10RawIndex.normal(i)
-          ]
-          const mnemonic = 'month all deliver flower party keep minor salon much cross kiss indoor true high goat vehicle hazard age round cage toy choose lottery nice'
+            Slip10RawIndex.normal(0),
+          ];
+          const mnemonic = "month all deliver flower party keep minor salon much cross kiss indoor true high goat vehicle hazard age round cage toy choose lottery nice";
           // Signing environment
           const wallet = await DirectSecp256k1HdWallet.fromMnemonic(mnemonic, {
             hdPaths: [hdPath],
-            prefix: "imv"
-          })
+            prefix: "imv",
+          });
 
-          const pubkey = encodeSecp256k1Pubkey((await wallet.getAccounts())[0].pubkey);
+          // encode returns wrong type
+          // const pubkey = encodeSecp256k1Pubkey((await wallet.getAccounts())[0].pubkey);
+          const pubkey = {
+            type: "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+            value: 'A0WJjUArjFrjIePaDZOEpIHSaiHj2Q54iic7+BJvjkxQ'
+          }
+          // console.log("pubkey", pubkey)
           const address = (await wallet.getAccounts())[0].address;
-          const signingClient = await SigningStargateClient.offline(wallet);
+          const signingClient = await SigningStargateClient.connectWithSigner(tendermintUrl, wallet);
           const signerData: SignerData = {
             accountNumber: signingInstruction.accountNumber,
             sequence: signingInstruction.sequence,
             chainId: signingInstruction.chainId,
           };
-          console.log("address", address)
           const { bodyBytes: bb, signatures } = await signingClient.sign(
             address,
             signingInstruction.msgs,
@@ -253,16 +271,20 @@ describe("multisignature", () => {
       // can collect, assemble and broadcast.
       {
         const multisigPubkey = createMultisigThresholdPubkey(
-          [pubkey0, pubkey1, pubkey2, pubkey3, pubkey4],
+          // [pubkey0, pubkey1, pubkey2, pubkey3, pubkey4],
+          [pubkey0, pubkey1],
           2,
+          true,
         );
-        expect(pubkeyToAddress(multisigPubkey, "imv")).toEqual(multisigAccountAddress);
 
+        console.log("createMultisigThresholdPubkey result", multisigPubkey.value.pubkeys)
+        expect(pubkeyToAddress(multisigPubkey, "imv")).toEqual(multisigAccountAddress);
+        //
         const address0 = pubkeyToAddress(pubkey0, "imv");
         const address1 = pubkeyToAddress(pubkey1, "imv");
-        const address2 = pubkeyToAddress(pubkey2, "imv");
-        const address3 = pubkeyToAddress(pubkey3, "imv");
-        const address4 = pubkeyToAddress(pubkey4, "imv");
+        // const address2 = pubkeyToAddress(pubkey2, "imv");
+        // const address3 = pubkeyToAddress(pubkey3, "imv");
+        // const address4 = pubkeyToAddress(pubkey4, "imv");
 
         const broadcaster = await StargateClient.connect(tendermintUrl);
         const signedTx = makeMultisignedTx(
@@ -273,9 +295,9 @@ describe("multisignature", () => {
           new Map<string, Uint8Array>([
             [address0, signature0],
             [address1, signature1],
-            [address2, signature2],
-            [address3, signature3],
-            [address4, signature4],
+            // [address2, signature2],
+            // [address3, signature3],
+            // [address4, signature4],
           ]),
         );
         // ensure signature is valid

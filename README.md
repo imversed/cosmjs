@@ -208,3 +208,12 @@ and suggestions.
 ## Development
 
 See [HACKING.md](HACKING.md).
+
+
+## to publish
+- add in .yarnrc.yml your npm token. ! do not commit and push this changes !
+  ```yaml
+  npmPublishRegistry: "https://registry.npmjs.org"
+  npmAuthToken: npm_your_token```
+
+- yarn minor-version && yarn publish
