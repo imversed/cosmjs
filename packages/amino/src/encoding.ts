@@ -10,6 +10,7 @@ import {
   Pubkey,
   pubkeyType,
   SinglePubkey,
+  isEthsecp256k1Pubkey
 } from "./pubkeys";
 
 export function encodeSecp256k1Pubkey(pubkey: Uint8Array, urlType?: string): SinglePubkey {
@@ -189,7 +190,10 @@ export function encodeAminoPubkey(pubkey: Pubkey): Uint8Array {
     return new Uint8Array([...pubkeyAminoPrefixEd25519, ...fromBase64(pubkey.value)]);
   } else if (isSecp256k1Pubkey(pubkey)) {
     return new Uint8Array([...pubkeyAminoPrefixSecp256k1, ...fromBase64(pubkey.value)]);
-  } else {
+  } else if (isEthsecp256k1Pubkey(pubkey)) {
+    // check!!!
+    return new Uint8Array([...pubkeyAminoPrefixSecp256k1, ...fromBase64(pubkey.value)]);
+  }else {
     throw new Error("Unsupported pubkey type");
   }
 }
