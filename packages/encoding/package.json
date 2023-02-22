@@ -1,6 +1,6 @@
 {
   "name": "@imversed/encoding",
-  "version": "0.28.3",
+  "version": "0.29.3",
   "description": "Encoding helpers for blockchain projects",
   "contributors": [
     "IOV SAS <admin@iov.one>"

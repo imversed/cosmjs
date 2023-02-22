@@ -10,7 +10,7 @@ import {
   makeSignDoc,
   OfflineSigner,
   Registry,
-  TxBodyEncodeObject
+  TxBodyEncodeObject,
 } from "@imversed/proto-signing";
 import { Tendermint34Client } from "@imversed/tendermint-rpc";
 import { assert, assertDefined } from "@imversed/utils";
@@ -341,6 +341,7 @@ export class SigningStargateClient extends StargateClient {
     const accountFromSigner = (await this.signer.getAccounts()).find(
       (account) => account.address === signerAddress,
     );
+    console.log("signAmino");
     if (!accountFromSigner) {
       throw new Error("Failed to retrieve account from signer");
     }
@@ -380,18 +381,21 @@ export class SigningStargateClient extends StargateClient {
     memo: string,
     { accountNumber, sequence, chainId }: SignerData,
   ): Promise<TxRaw> {
+    console.log("signDirect");
+    console.log("signDirect signerAddress", signerAddress);
+
+
     assert(isOfflineDirectSigner(this.signer));
     const accountFromSigner = (await this.signer.getAccounts()).find(
       (account) => account.address === signerAddress,
     );
 
-    const account = await this.getAccount(signerAddress)
+    const account = await this.getAccount(signerAddress);
 
     if (!accountFromSigner) {
       throw new Error("Failed to retrieve account from signer");
     }
     let pubkey = encodePubkey(encodeSecp256k1Pubkey(accountFromSigner.pubkey, "/ethermint.crypto.v1.ethsecp256k1.PubKey"));
-
 
     const txBodyEncodeObject: TxBodyEncodeObject = {
       typeUrl: "/cosmos.tx.v1beta1.TxBody",

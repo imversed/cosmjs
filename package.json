@@ -1,7 +1,6 @@
 {
   "name": "cosmjs-monorepo-root",
   "description": "Transaction codec and client to communicate with any wasmd blockchain",
-  "private": true,
   "author": "Ethan Frey <ethanfrey@users.noreply.github.com>",
   "license": "Apache-2.0",
   "main": "build/index.js",
@@ -36,9 +35,11 @@
     "build": "yarn workspaces foreach --topological-dev --parallel --verbose run build",
     "docs": "yarn workspaces foreach --topological-dev --parallel --verbose run docs",
     "pack-web": "yarn workspaces foreach --topological-dev --parallel --verbose run pack-web",
+    "publish": "yarn workspaces foreach --no-private exec npm publish",
     "publish-next": "yarn workspaces foreach --no-private exec yarn npm publish --tag next",
     "publish-latest": "yarn workspaces foreach --no-private exec yarn npm publish",
-    "patch-version": "yarn workspaces foreach exec yarn version patch"
+    "patch-version": "yarn workspaces foreach exec yarn version patch",
+    "minor-version": "yarn workspaces foreach version minor"
   },
   "devDependencies": {
     "@imversed/amino": "workspace:packages/amino",
@@ -50,5 +51,6 @@
     "eslint": "^7.5",
     "prettier": "^2.4.1",
     "typescript": "~4.4"
-  }
+  },
+  "version": "0.1.3"
 }

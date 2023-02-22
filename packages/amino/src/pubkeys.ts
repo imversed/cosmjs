@@ -20,6 +20,10 @@ export interface Secp256k1Pubkey extends SinglePubkey {
   readonly value: string;
 }
 
+export function isEthsecp256k1Pubkey(pubkey: Pubkey): pubkey is Secp256k1Pubkey {
+  return (pubkey as Secp256k1Pubkey).type === "/ethermint.crypto.v1.ethsecp256k1.PubKey";
+}
+
 export function isSecp256k1Pubkey(pubkey: Pubkey): pubkey is Secp256k1Pubkey {
   return (pubkey as Secp256k1Pubkey).type === "tendermint/PubKeySecp256k1";
 }
