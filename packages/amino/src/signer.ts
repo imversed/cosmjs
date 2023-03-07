@@ -34,5 +34,5 @@ export interface OfflineAminoSigner {
    * @param signerAddress The address of the account that should sign the transaction
    * @param signDoc The content that should be signed
    */
-  readonly signAmino: (signerAddress: string, signDoc: StdSignDoc) => Promise<AminoSignResponse>;
+  readonly signAmino: (signerAddress: string, signDoc: StdSignDoc, urlType?: string) => Promise<AminoSignResponse>;
 }
