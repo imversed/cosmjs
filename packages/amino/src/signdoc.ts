@@ -68,6 +68,24 @@ export function makeSignDoc(
   };
 }
 
-export function serializeSignDoc(signDoc: StdSignDoc): Uint8Array {
+export function serializeSignDoc(signDoc: StdSignDoc, docType?: string): Uint8Array {
+  switch (docType) {
+    case "Ethermint":
+      const updatedMessages = signDoc.msgs.map((msg) => {
+        return msg.value;
+      });
+
+      const bytes = toUtf8(
+        sortedJsonStringify({
+          chain_id: signDoc.chain_id,
+          account_number: signDoc.account_number,
+          sequence: signDoc.sequence,
+          fee: signDoc.fee,
+          memo: signDoc.memo,
+          msgs: updatedMessages,
+        }),
+      );
+      return bytes;
+  }
   return toUtf8(sortedJsonStringify(signDoc));
 }
